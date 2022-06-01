@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import Image from "next/image";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { Avatar } from "./styled_components";
+import Click from "./Click";
 
 const columns = [
   // { id: "image", label: "" },
@@ -122,7 +123,7 @@ export default function BigScreenTable() {
                                 justifyContent: "space-between",
                               }}
                             >
-                              {value} <BiDotsVerticalRounded fontSize="24px" />
+                              {value} <Click colaboratorID={row.agent_id} />
                             </div>
                           ) : (
                             value
