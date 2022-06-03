@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import "../styles/small.css"; // remover
-import "../styles/psmall.css"; // remover
+// import "../styles/psmall.css"; // remover
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./../styles/theme";

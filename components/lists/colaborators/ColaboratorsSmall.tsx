@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Title } from "./styled_components";
 
-export const SmallScreenTable = ({ rows }) => {
+export const ColaboratorsSmall = ({ rows }) => {
   const [selected, setSelected] = useState(null);
   const [qtnColaborators, setQtnColaborators] = useState(6);
 
@@ -17,7 +18,7 @@ export const SmallScreenTable = ({ rows }) => {
         <div className="sc_accordion">
           {rows.slice(0, qtnColaborators).map((item, i) => (
             <div key={item.id} className="sc_item" onClick={() => toogle(i)}>
-              <div className="sc_title">
+              <Title>
                 <div className="sc_main">
                   <div className="sc_name_title">Nome Completo</div>
                   <div className="sc_desc">
@@ -31,30 +32,31 @@ export const SmallScreenTable = ({ rows }) => {
                   </div>
                 </div>
                 <span>{selected === i ? "-" : "+"}</span>
-              </div>
+              </Title>
               <div className={selected === i ? "sc_show" : "sc_content"}>
                 <div className="sc_cards">
                   <div className="sc_card">
                     <div>Departamento</div>
-                    <div>Administrativo</div>
+                    <div>{item.department}</div>
                   </div>
                   <div className="sc_card">
-                    <div>Departamento</div>
-                    <div>Administrativo</div>
+                    <div>Cargo</div>
+                    <div>{item.role}</div>
                   </div>
                   <div className="sc_card">
-                    <div>Departamento</div>
-                    <div>Administrativo</div>
+                    <div>Unidade</div>
+                    <div>{item.agent_id}</div>
                   </div>
                   <div className="sc_card">
-                    <div>Departamento</div>
-                    <div>Administrativo</div>
+                    <div>Unidade</div>
+                    <div>{item.branch}</div>
                   </div>
                   <div className="sc_card">
-                    <div>Departamento</div>
-                    <div>Administrativo</div>
+                    <div>Status</div>
+                    <div>{item.status}</div>
                   </div>
                 </div>
+                <button>Ações</button>
               </div>
             </div>
           ))}

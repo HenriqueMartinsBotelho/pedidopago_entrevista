@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import BigScreenTable from "../../components/table/colaborators/BigScreenTable";
-import { SmallScreenTable } from "../../components/table/colaborators/SmallScreenTable";
+import ColaboratorsBig from "../../components/lists/colaborators/ColaboratorsBig";
+import { ColaboratorsSmall } from "../../components/lists/colaborators/ColaboratorsSmall";
 import { theme } from "./../../styles/theme";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/material/";
@@ -12,8 +12,8 @@ import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import { RiSearch2Line } from "react-icons/ri";
 import axios from "axios";
-import PositionsBigTable from "../../components/table/positions/PositionsBigTable";
-import PositionsSmallTable from "../../components/table/positions/PositionsSmallTable";
+import PositionsBig from "../../components/lists/positions/PositionsBig";
+import PositionsSmall from "../../components/lists/positions/PositionsSmall";
 
 const Home = () => {
   const [query, setQuery] = React.useState("");
@@ -135,9 +135,9 @@ const Home = () => {
                     Listagem de Colaboradores
                   </Box>
                   {isSmallScreen ? (
-                    <BigScreenTable rows={filtered_colaborators} />
+                    <ColaboratorsBig rows={filtered_colaborators} />
                   ) : (
-                    <SmallScreenTable rows={filtered_colaborators} />
+                    <ColaboratorsSmall rows={filtered_colaborators} />
                   )}
                 </Box>
               </TabPanel>
@@ -176,9 +176,9 @@ const Home = () => {
                     Listagem de Cargos
                   </Box>
                   {isSmallScreen ? (
-                    <PositionsBigTable rows={filtered_positions} />
+                    <PositionsBig rows={filtered_positions} />
                   ) : (
-                    <PositionsSmallTable rows={filtered_positions} />
+                    <PositionsSmall rows={filtered_positions} />
                   )}
                 </Box>
               </TabPanel>

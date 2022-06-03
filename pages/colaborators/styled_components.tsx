@@ -6,6 +6,7 @@ export const Details = styled.div`
   line-height: 100%;
   color: #34423d;
   margin-bottom: 20px;
+  display: flex;
 `;
 
 export const Card = styled.div`

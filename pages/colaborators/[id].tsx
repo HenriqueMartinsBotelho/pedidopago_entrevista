@@ -6,6 +6,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { BiArrowBack } from "react-icons/bi";
+import Link from "next/link";
 
 const ColaboratorDetails = () => {
   const router = useRouter();
@@ -45,7 +47,27 @@ const ColaboratorDetails = () => {
 
   return (
     <Box style={{ maxWidth: "956px", margin: "auto" }}>
-      <Details>Detalhes do colaborador</Details>
+      <Details>
+        <span
+          style={{
+            background: "#EAEFED",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            marginRight: "8px",
+            fontSize: "24px",
+            cursor: "pointer",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Link href="/home">
+            <BiArrowBack />
+          </Link>
+        </span>
+        Detalhes do colaborador
+      </Details>
       <Box
         style={{
           boxShadow: "0px 4px 8px rgba(165, 171, 179, 0.16)",

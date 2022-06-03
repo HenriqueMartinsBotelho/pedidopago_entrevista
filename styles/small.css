@@ -54,7 +54,7 @@
 
 .sc_cards {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
