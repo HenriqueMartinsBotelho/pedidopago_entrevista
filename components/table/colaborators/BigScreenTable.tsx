@@ -1,3 +1,4 @@
+import { GetServerSideProps } from "next";
 import React, { useEffect } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -10,12 +11,12 @@ import TableRow from "@mui/material/TableRow";
 import Image from "next/image";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { Avatar } from "./styled_components";
-import Click from "./Click";
+import JumpToDetails from "./JumpToDetails";
 
 const columns = [
   // { id: "image", label: "" },
   { id: "name", label: "Nome completo", minWidth: 170 },
-  { id: "department", label: "departmento", minWidth: 100 },
+  { id: "department", label: "Departmento", minWidth: 100 },
   {
     id: "role",
     label: "Cargo",
@@ -52,10 +53,10 @@ const columns = [
 //  }
 // ];
 
-export default function BigScreenTable() {
+export default function BigScreenTable({ rows }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [rows, setRows] = React.useState<any[]>([]);
+  // const [rows, setRows] = React.useState<any[]>([]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -66,13 +67,13 @@ export default function BigScreenTable() {
     setPage(0);
   };
 
-  useEffect(() => {
-    fetch("https://pp-api-desafio.herokuapp.com/agents")
-      .then((res) => res.json())
-      .then((data) => {
-        setRows(data.items);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://pp-api-desafio.herokuapp.com/agents")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setRows(data.items);
+  //     });
+  // }, []);
 
   // {
   //   colaborators.map((colaborator) => (
@@ -123,7 +124,8 @@ export default function BigScreenTable() {
                                 justifyContent: "space-between",
                               }}
                             >
-                              {value} <Click colaboratorID={row.agent_id} />
+                              {value}{" "}
+                              <JumpToDetails colaboratorID={row.agent_id} />
                             </div>
                           ) : (
                             value

@@ -5,7 +5,7 @@ import { SxProps } from "@mui/system";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import Link from "next/link";
 
-export default function Click({ colaboratorID }) {
+export default function JumpToDetails({ colaboratorID }) {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -37,9 +37,7 @@ export default function Click({ colaboratorID }) {
         {open ? (
           <Box sx={styles}>
             <Box>
-              <Link href={`/colaborators/${colaboratorID}`}>
-                Ver colaborador
-              </Link>
+              <Link href={`/colaborators/1`}>Ver colaborador</Link>
             </Box>
             <Box>Excluir</Box>
           </Box>
