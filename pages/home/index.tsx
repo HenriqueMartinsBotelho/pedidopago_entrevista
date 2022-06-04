@@ -24,7 +24,7 @@ const Home = () => {
   const [positions, setPositions] = useState<any[]>([]);
   const [filtered_positions, setFilteredPositions] = useState<any[]>([]);
 
-  const isSmallScreen = useMediaQuery(theme.breakpoints.up("sm"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.up("md"));
   const [value, setValue] = useState("1");
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -65,13 +65,33 @@ const Home = () => {
 
   return (
     <>
-      <div style={{ padding: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <div>
-          <Box style={{ fontWeight: 600, fontSize: "32px" }}>Organização</Box>
+          <Box
+            style={{
+              fontWeight: 600,
+              fontSize: "32px",
+              color: "#34423D",
+              lineHeight: "100%",
+              marginBottom: "24px",
+              marginTop: "10px",
+            }}
+          >
+            Organização
+          </Box>
           <Box
             style={{
               boxShadow: "0px 4px 8px rgba(165, 171, 179, 0.16)",
               borderRadius: "8px",
+              background: "white",
+              padding: "40px 24px",
+              width: "60vw",
+              minWidth: "300px",
             }}
           >
             <TabContext value={value}>
@@ -81,10 +101,23 @@ const Home = () => {
                   onChange={handleChange}
                   textColor="secondary"
                   indicatorColor="secondary"
+                  TabIndicatorProps={{
+                    style: {
+                      backgroundColor: "#22E0A1",
+                    },
+                  }}
                 >
                   <Tab
                     label={
-                      <span style={{ textTransform: "capitalize" }}>
+                      <span
+                        style={{
+                          textTransform: "capitalize",
+                          color: "#34423D",
+                          fontWeight: "600",
+                          fontSize: "14px",
+                          lineHeight: "100%",
+                        }}
+                      >
                         Colaboradores
                       </span>
                     }
@@ -92,7 +125,15 @@ const Home = () => {
                   />
                   <Tab
                     label={
-                      <span style={{ textTransform: "capitalize" }}>
+                      <span
+                        style={{
+                          textTransform: "capitalize",
+                          color: "#A3B8B0",
+                          fontSize: "14px",
+                          fontWeight: "bold",
+                          lineHeight: "100%",
+                        }}
+                      >
                         Cargos
                       </span>
                     }
@@ -103,20 +144,46 @@ const Home = () => {
               <TabPanel value="1">
                 <Box
                   style={{
-                    width: "80%",
+                    width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     gap: "30px",
                   }}
                 >
                   <TextField
-                    label="Pesquisar por"
+                    label={
+                      <span
+                        style={{
+                          color: "#A3B8B0",
+                          fontWeight: "500",
+                          background: "white",
+                        }}
+                      >
+                        &nbsp;&nbsp;Pesquisar por&nbsp;&nbsp;
+                      </span>
+                    }
                     // defaultValue=""
                     placeholder="Pesquise por nome ou cpf"
                     fullWidth
                     id="outlined-start-adornment"
                     onChange={(e) => searchUser(e.target.value)}
                     // sx={{ m: 1, width: "25ch" }}
+                    style={{ outline: "none" }}
+                    sx={{
+                      border: "2px solid #CAD6D1",
+                      borderRadius: "8px",
+                      "& .MuiOutlinedInput-root.Mui-focused,  .MuiOutlinedInput-notchedOutline":
+                        {
+                          border: "none",
+                          borderRadius: "8px",
+                        },
+                      "& .MuiOutlinedInput-root:hover,": {
+                        "& > fieldset": {
+                          border: "none",
+                          borderRadius: "8px",
+                        },
+                      },
+                    }}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">
@@ -144,7 +211,7 @@ const Home = () => {
               <TabPanel value="2">
                 <Box
                   style={{
-                    width: "80%",
+                    width: "100%",
                     display: "flex",
                     flexDirection: "column",
                     gap: "30px",

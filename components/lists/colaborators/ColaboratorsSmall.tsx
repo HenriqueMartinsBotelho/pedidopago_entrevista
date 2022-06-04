@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   Avatar,
   Accordion,
+  Item,
   Title,
   Main,
   NameTitle,
@@ -30,7 +31,7 @@ export const ColaboratorsSmall = ({ rows }) => {
   return (
     <Accordion>
       {rows.slice(0, qtnColaborators).map((item, i) => (
-        <div key={item.id} className="sc_item" onClick={() => toogle(i)}>
+        <Item key={item.id} onClick={() => toogle(i)}>
           <Title>
             <Main>
               <NameTitle>Nome Completo</NameTitle>
@@ -66,7 +67,7 @@ export const ColaboratorsSmall = ({ rows }) => {
             </Cards>
             <BtnAction>Ações</BtnAction>
           </ContentShow>
-        </div>
+        </Item>
       ))}
       <BtnLoad
         onClick={() => {

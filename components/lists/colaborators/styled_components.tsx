@@ -11,6 +11,13 @@ export const Avatar = styled.img`
   margin-right: 12px;
 `;
 
+export const Item = styled.div`
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: 2px solid #eaefed;
+  border-radius: 8px;
+`;
+
 export const Accordion = styled.div`
   width: 300px;
 `;

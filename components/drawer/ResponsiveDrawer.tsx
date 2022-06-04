@@ -55,6 +55,8 @@ export default function ResponsiveDrawer(props: Props) {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          background: "white",
+          boxShadow: "none",
         }}
       >
         <Toolbar>
@@ -68,7 +70,7 @@ export default function ResponsiveDrawer(props: Props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+            {/* Responsive drawer */}
           </Typography>
         </Toolbar>
       </AppBar>
