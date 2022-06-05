@@ -19,7 +19,7 @@ export const Item = styled.div`
 `;
 
 export const Accordion = styled.div`
-  width: 300px;
+  width: 100%;
 `;
 
 export const Title = styled.div`

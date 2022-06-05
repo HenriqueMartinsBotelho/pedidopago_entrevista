@@ -1,4 +1,3 @@
-import { GetServerSideProps } from "next";
 import React, { useEffect } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -8,13 +7,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import Image from "next/image";
-import { BiDotsVerticalRounded } from "react-icons/bi";
 import { Avatar } from "./styled_components";
 import JumpToDetails from "./JumpToDetails";
 
 const columns = [
-  // { id: "image", label: "" },
   { id: "name", label: "Nome completo", minWidth: 170 },
   { id: "department", label: "Departmento", minWidth: 100 },
   {
@@ -22,36 +18,20 @@ const columns = [
     label: "Cargo",
     minWidth: 170,
     align: "right",
-    // format: (value) => value.toLocaleString("en-US"),
   },
   {
     id: "branch",
     label: "Unidade",
     minWidth: 170,
     align: "right",
-    // format: (value) => value.toLocaleString("en-US"),
   },
   {
     id: "status",
     label: "Status",
     minWidth: 170,
     align: "right",
-    // format: (value) => value.toFixed(2),
   },
 ];
-
-// function createData(name, department, role, branch, status) {
-//   return { name, department, role, branch, status };
-// }
-
-// const rows = [ {
-//     "Godzila da Silva",
-//     "Administrativo",
-//     "Diretor",
-//     "Quartel General",
-//     "Ativo"
-//  }
-// ];
 
 export default function BigScreenTable({ rows }) {
   const [page, setPage] = React.useState(0);
@@ -67,23 +47,9 @@ export default function BigScreenTable({ rows }) {
     setPage(0);
   };
 
-  // useEffect(() => {
-  //   fetch("https://pp-api-desafio.herokuapp.com/agents")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setRows(data.items);
-  //     });
-  // }, []);
-
-  // {
-  //   colaborators.map((colaborator) => (
-  //     <div key={colaborator.agent_id}>{colaborator.name}</div>
-  //   ));
-  // }
-
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer sx={{ maxHeight: 440, overflow: "hidden" }}>
+      <TableContainer sx={{ maxHeight: "760px" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -147,6 +113,10 @@ export default function BigScreenTable({ rows }) {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        labelRowsPerPage={""}
+        labelDisplayedRows={({ from, to, count }) =>
+          `Mostrando ${to} de ${count} registros`
+        }
       />
     </Paper>
   );
